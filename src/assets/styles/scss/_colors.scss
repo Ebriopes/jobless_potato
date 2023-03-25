@@ -1,0 +1,44 @@
+// Color system variables
+/// Primary
+
+$primary: (
+  900: #4c1d95,
+  600: #7c3aed,
+  300: #c4b5fd,
+);
+
+$secondary: (
+  900: #2a4e51,
+  600: #1db5be,
+  300: #75e3ea,
+);
+
+$neutral: (
+  900: #111827,
+  800: #1f2937,
+  700: #374151,
+  600: #4b5563,
+  500: #6b7280,
+  400: #9ca3af,
+  300: #d1d5db,
+  200: #e5e7eb,
+  100: #f3f4f6,
+);
+
+$accent: (
+  1: #c1e5c0,
+  2: #c0dae5,
+  3: #fdd9d9,
+  4: #ffc3d8,
+  5: #a0dcff,
+  6: #d9e8ef,
+  7: #f9b501,
+);
+
+///
+/// @param {number} $value Value between 100 & 900, in steps of 100
+/// @author Ebriopes
+
+@function bg-color($value) {
+  @return map-get($map: $neutral, $key: $value);
+}
