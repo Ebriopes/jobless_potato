@@ -2,12 +2,27 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { redirectTo: 'home', path: '', pathMatch: 'full' },
   {
     path: 'home',
     loadChildren: () =>
       import('./views/home/home.module').then((m) => m.HomeModule),
+    data: {
+      animation: 'HomePage',
+    },
   },
-  { redirectTo: 'home', path: '', pathMatch: 'full' },
+  {
+    path: 'rick-and-morty',
+    loadChildren: () =>
+      import('./views/rick-and-morty/rick-and-morty.module').then(
+        (m) => m.RickAndMortyModule,
+      ),
+    data: { animation: 'RickPage' },
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({
