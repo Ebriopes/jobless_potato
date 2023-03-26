@@ -1,22 +1,29 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ROUTES } from './app.constants';
-import { NavbarService } from './services/navbar.service';
+import { ChildrenOutletContexts } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { NavbarService } from './services/navbar.service';
+import { ROUTES } from './app.constants';
 import { IRoute } from './interfaces/route.interface';
+import { slideInAnimation } from './animation';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit, OnDestroy {
   routes: IRoute[] = ROUTES;
   showUser = false;
   title: string = '';
+  routeState = null;
 
   private readonly unsubscribe: Subject<void> = new Subject();
 
-  constructor(private readonly navService: NavbarService) {}
+  constructor(
+    private readonly navService: NavbarService,
+    private readonly contexts: ChildrenOutletContexts,
+  ) {}
 
   ngOnInit(): void {
     this.navService.title
@@ -35,5 +42,11 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe.next();
     this.unsubscribe.complete();
+  }
+
+  getRouterAnimationState(): string {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.[
+      'animation'
+    ];
   }
 }

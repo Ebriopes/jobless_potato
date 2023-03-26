@@ -50,7 +50,7 @@
       </div>
     </mat-toolbar>
 
-    <div class="content">
+    <div [@routeAnimations]="getRouterAnimationState()" class="content">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
