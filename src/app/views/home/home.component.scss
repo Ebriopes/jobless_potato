@@ -1,0 +1,33 @@
+@import 'src/assets/styles/scss/colors';
+
+:host {
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: map-get($map: $neutral, $key: 100);
+}
+h1 {
+  font-size: 2rem;
+  margin-block-end: 2rem;
+
+  b {
+    float: right;
+  }
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .card {
+    justify-content: space-between;
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
