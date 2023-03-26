@@ -1,0 +1,49 @@
+<main class="container">
+  <h1>Bienvenido a la API de Rick & Morty</h1>
+
+  <mat-card class="card">
+    <ng-container *ngIf="character">
+      <mat-card-header>
+        <mat-card-title>
+          {{ character.name }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{ character.species }} - {{ character.gender }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <img mat-card-image [src]="character.image" [alt]="character.name" />
+
+      <mat-card-content>
+        <p>
+          <b>Estado:</b>
+          {{ character.status }}
+        </p>
+        <p>
+          <b>Origen:</b>
+          {{ character.origin.name }}
+        </p>
+        <p>
+          <b>Localización:</b>
+          {{ character.location.name }}
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button
+          *ngIf="prevCharacter"
+          mat-raised-button
+          color="accent"
+          (click)="getNewCharacter(prevCharacter)">
+          Anterior
+        </button>
+
+        <button mat-raised-button color="accent" (click)="getNewCharacter()">
+          Siguiente
+        </button>
+      </mat-card-actions>
+    </ng-container>
+
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  </mat-card>
+</main>
