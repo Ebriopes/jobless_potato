@@ -20,6 +20,11 @@ const routes: Routes = [
     data: { animation: 'RickPage' },
   },
   {
+    path: 'booking',
+    loadChildren: () =>
+      import('./views/booking/booking.module').then((m) => m.BookingModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },
