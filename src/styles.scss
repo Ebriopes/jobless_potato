@@ -1,5 +1,5 @@
 // Import our style resources
-@import "assets/styles/scss/";
+@import 'assets/styles/scss/';
 
 html,
 body {
@@ -7,6 +7,12 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   background-color: bg-color(100);
+}
+
+/// @link https://fonts.google.com/icons
+// Set modifier to sidenav links
+a.w-100 > .mdc-button__label {
+  width: 100%;
 }
