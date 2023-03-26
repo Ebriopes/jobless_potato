@@ -12,9 +12,9 @@ export class HomeComponent implements OnInit {
   user = 'User X';
   title = 'HOME';
 
-  constructor(private readonly navService: NavbarService) {}
-
-  ngOnInit(): void {
+  constructor(private readonly navService: NavbarService) {
     this.navService.setTitle(this.title);
   }
+
+  ngOnInit(): void {}
 }
