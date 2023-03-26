@@ -19,13 +19,14 @@ mat-sidenav-container {
     padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 
     & > img {
       height: 100%;
     }
 
     & > span {
+      line-height: 2.5rem;
       font-size: 2rem;
       font-weight: 900;
       font-family: 'Courier New', Courier, monospace;
