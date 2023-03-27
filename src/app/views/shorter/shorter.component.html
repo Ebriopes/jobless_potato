@@ -1,1 +1,75 @@
-<p>shorter works!</p>
+<main>
+  <mat-card class="card-container">
+    <h1>Acortador de links</h1>
+    <p>
+      Para obtener tus links acortados sólo tienes que pegar tu link en el
+      siguient recuadro
+    </p>
+    <p>No olvides presionar el boton</p>
+    <div class="input-wrapper">
+      <mat-form-field>
+        <mat-label>Link</mat-label>
+        <input matInput type="text" [(ngModel)]="link" #ctrl="ngModel" />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="!ctrl?.value"
+        (click)="shortLink(ctrl?.value)">
+        Acortar
+      </button>
+    </div>
+
+    <h3>Historial</h3>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Code Column -->
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef>Code</th>
+        <td mat-cell *matCellDef="let element">{{ element.code }}</td>
+      </ng-container>
+
+      <!-- Origin Column -->
+      <ng-container matColumnDef="original_link">
+        <th mat-header-cell *matHeaderCellDef>Link Original</th>
+        <td mat-cell *matCellDef="let element" class="original-link">
+          <a target="_blank" [href]="element.original_link">
+            {{ element.original_link }}
+          </a>
+        </td>
+      </ng-container>
+
+      <!-- Short Link Column -->
+      <ng-container matColumnDef="short_link">
+        <th mat-header-cell *matHeaderCellDef>Nuevo Link</th>
+        <td mat-cell *matCellDef="let element">
+          <a target="_blank" [href]="element.full_short_link">
+            {{ element.short_link }}
+          </a>
+        </td>
+      </ng-container>
+
+      <!-- Second Short Link Column -->
+      <ng-container matColumnDef="short_link2">
+        <th mat-header-cell *matHeaderCellDef>Nuevo Link 2</th>
+        <td mat-cell *matCellDef="let element">
+          <a target="_blank" [href]="element.full_short_link2">
+            {{ element.short_link2 }}
+          </a>
+        </td>
+      </ng-container>
+
+      <!-- Second Short Link Column -->
+      <ng-container matColumnDef="short_link3">
+        <th mat-header-cell *matHeaderCellDef>Nuevo Link 3</th>
+        <td mat-cell *matCellDef="let element">
+          <a target="_blank" [href]="element.full_short_link3">
+            {{ element.short_link3 }}
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card>
+</main>

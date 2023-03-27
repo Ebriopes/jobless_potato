@@ -1,0 +1,33 @@
+:host {
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 75%;
+}
+
+.card-container {
+  padding: 1rem;
+
+  .input-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    mat-form-field {
+      flex-grow: 1;
+    }
+  }
+
+  table .original-link > a {
+    max-width: 10rem;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
