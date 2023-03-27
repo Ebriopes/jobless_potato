@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Subject, of, takeUntil } from 'rxjs';
+import { Subject, map, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { NavbarService } from 'src/app/services/navbar.service';
 import { GenericModalComponent } from 'src/app/shared/components/generic-modal/generic-modal.component';
@@ -55,7 +55,10 @@ export class BookingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.api
       .get('https://api.first.org/data/v1/countries')
-      .pipe(takeUntil(this.unsubscribe))
+      .pipe(
+        map((res: any) => res?.data),
+        takeUntil(this.unsubscribe),
+      )
       .subscribe({
         next: (countries: any) => {
           this.countries = countries as ICountries;
@@ -64,10 +67,6 @@ export class BookingComponent implements OnInit, OnDestroy {
           this.countries = COUNTRIES;
         },
       });
-
-    console.log(this.getDate({ day: 0, month: 11 }, false));
-
-    this.bookingForm.valueChanges.subscribe(console.log);
   }
 
   ngOnDestroy(): void {
