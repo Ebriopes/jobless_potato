@@ -3,32 +3,11 @@
     <h1>Reserva</h1>
     <p>Para agendar tu reserva sólo necesitas llenar los siguientes campos</p>
 
-    <form>
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label>Fecha</mat-label>
-          <input matInput type="date" />
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label>Nombre</mat-label>
-          <input matInput type="text" />
-        </mat-form-field>
-      </div>
-
+    <form [formGroup]="bookingForm">
       <div>
         <mat-form-field>
-          <mat-label>Correo Electronico</mat-label>
-          <input matInput type="email" />
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label>Papís</mat-label>
-          <mat-select>
+          <mat-label>Destino</mat-label>
+          <mat-select formControlName="country">
             <mat-option
               *ngFor="let country of countries | keyvalue"
               [value]="country.value.country">
@@ -36,6 +15,49 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Fecha</mat-label>
+          <input
+            matInput
+            type="date"
+            formControlName="date"
+            [min]="minDate"
+            [max]="maxDate" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field hintLabel="Sólo @hotmail o @gmail">
+          <mat-label>Correo Electronico</mat-label>
+          <input matInput type="email" formControlName="email" />
+        </mat-form-field>
+      </div>
+
+      <div class="buttons">
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="!bookingForm.touched"
+          (click)="resetForm()">
+          Limpiar
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!bookingForm.valid"
+          (click)="openDialog()">
+          Reservar
+        </button>
       </div>
     </form>
   </mat-card>
