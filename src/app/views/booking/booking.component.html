@@ -1,0 +1,42 @@
+<main>
+  <mat-card class="form-wrapper">
+    <h1>Reserva</h1>
+    <p>Para agendar tu reserva sólo necesitas llenar los siguientes campos</p>
+
+    <form>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha</mat-label>
+          <input matInput type="date" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Correo Electronico</mat-label>
+          <input matInput type="email" />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Papís</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let country of countries | keyvalue"
+              [value]="country.value.country">
+              {{ country.value.country }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card>
+</main>

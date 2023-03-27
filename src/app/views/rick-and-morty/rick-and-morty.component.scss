@@ -1,0 +1,27 @@
+:host {
+  padding: 2rem;
+  height: 100%;
+}
+
+.container {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card {
+  width: 300px;
+
+  img {
+    height: 250px;
+    margin-block: 1rem;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+mat-card-actions button:last-of-type {
+  margin-inline-start: 1rem;
+}

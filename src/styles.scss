@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+// Import our style resources
+@import 'assets/styles/scss/';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: bg-color(100);
+}
+
+/// @link https://fonts.google.com/icons
+// Set modifier to sidenav links
+a.w-100 > .mdc-button__label {
+  width: 100%;
+}

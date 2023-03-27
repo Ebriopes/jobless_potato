@@ -1,0 +1,30 @@
+<main>
+  <h1>
+    Bienvenido de nuevo
+    <b>{{ user }}</b>
+  </h1>
+  <p>Aquí tienes algunas actividades para hacer:</p>
+
+  <section class="cards-wrapper">
+    <mat-card class="card" *ngFor="let activitie of activities">
+      <mat-card-header>
+        <mat-card-title>{{ activitie.title }}</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>
+          {{ activitie.content }}
+        </p>
+
+        <p>{{ activitie.subcontent }}</p>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <a mat-fab extended [routerLink]="activitie.redirectTo">
+          <mat-icon>switch_access_shortcut</mat-icon>
+          Vamos
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+</main>
