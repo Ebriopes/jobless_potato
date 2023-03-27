@@ -1,0 +1,21 @@
+:host {
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper {
+  margin: auto;
+  padding: 1rem;
+
+  form {
+    .buttons {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+}
