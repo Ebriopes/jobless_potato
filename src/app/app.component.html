@@ -1,7 +1,7 @@
 <mat-sidenav-container>
   <mat-sidenav
     fixedInViewport
-    opened
+    [opened]="openSidenav"
     disableClose
     class="sidenav"
     mode="side"
@@ -17,6 +17,7 @@
 
       <ng-container *ngFor="let route of routes">
         <a
+          *ngIf="!route.rol || route.rol === user?.rol"
           mat-button
           class="w-100"
           routerLinkActive="active"
@@ -34,7 +35,7 @@
     </div>
 
     <div class="session-controls">
-      <button mat-fab>
+      <button mat-fab (click)="logout()">
         <mat-icon>logout</mat-icon>
       </button>
     </div>
@@ -45,7 +46,7 @@
       <span id="title">{{ title }}</span>
 
       <div class="user-info">
-        <span *ngIf="showUser">User X</span>
+        <span *ngIf="showUser">{{ user?.rol }}</span>
         <mat-icon>account_circle</mat-icon>
       </div>
     </mat-toolbar>

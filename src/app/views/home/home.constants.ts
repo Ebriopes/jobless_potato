@@ -5,6 +5,7 @@ export const ACTIVITIES = [
     subcontent: 'Descubre a tu personaje favorito',
     redirectTo: '/rick-and-morty',
     pathLabel: '',
+    userAllow: 'ROL-A',
   },
   {
     title: 'Reservas',
@@ -12,6 +13,7 @@ export const ACTIVITIES = [
     subcontent: 'Entra y haz tu reserva en un par de minutos',
     redirectTo: '/booking',
     pathLabel: '',
+    userAllow: 'ROL-A',
   },
   {
     title: 'Acortador de links',
@@ -20,5 +22,6 @@ export const ACTIVITIES = [
     subcontent: 'Entra, pega y copia',
     redirectTo: '/shorter',
     pathLabel: '',
+    userAllow: 'ROL-B',
   },
 ];

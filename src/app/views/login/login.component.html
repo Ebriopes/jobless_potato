@@ -1,0 +1,37 @@
+<main>
+  <mat-card class="form-wrapper">
+    <h1>Ingreso</h1>
+    <div [formGroup]="form">
+      <div>
+        <mat-form-field>
+          <mat-label>Rol</mat-label>
+          <mat-select formControlName="rol">
+            <mat-option *ngFor="let rol of roles" [value]="rol">
+              {{ rol }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            type="text"
+            name="password"
+            formControlName="password"
+            type="password" />
+        </mat-form-field>
+      </div>
+      <div class="buttons">
+        <button
+          mat-raised-button
+          color="accent"
+          [disabled]="!form.valid"
+          (click)="login()">
+          Login
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</main>
