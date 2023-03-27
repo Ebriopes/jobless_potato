@@ -53,12 +53,16 @@ export class BookingComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // this.api
-    //   .get('https://api.first.org/data/v1/countries')
-    of(COUNTRIES)
+    this.api
+      .get('https://api.first.org/data/v1/countries')
       .pipe(takeUntil(this.unsubscribe))
-      .subscribe((countries) => {
-        this.countries = countries;
+      .subscribe({
+        next: (countries: any) => {
+          this.countries = countries as ICountries;
+        },
+        error: () => {
+          this.countries = COUNTRIES;
+        },
       });
 
     console.log(this.getDate({ day: 0, month: 11 }, false));
