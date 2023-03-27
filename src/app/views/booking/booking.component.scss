@@ -1,7 +1,28 @@
 :host {
+  height: 100%;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-wrapper {
+  width: 500px;
+  margin: auto;
   padding: 1rem;
+
+  form {
+    margin-block-start: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+
+    .buttons {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
 }

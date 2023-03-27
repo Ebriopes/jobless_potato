@@ -23,6 +23,13 @@ const routes: Routes = [
     path: 'booking',
     loadChildren: () =>
       import('./views/booking/booking.module').then((m) => m.BookingModule),
+    data: { animation: 'booking' },
+  },
+  {
+    path: 'shorter',
+    loadChildren: () =>
+      import('./views/shorter/shorter.module').then((m) => m.ShorterModule),
+    data: { animation: 'shorter' },
   },
   {
     path: '**',

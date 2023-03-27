@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Ultimos pasos</h1>
+<div mat-dialog-content>
+  <p>Verifica tus datos antes de continuar</p>
+  <p>
+    <b>Nombre:</b>
+    {{ data.name }}
+  </p>
+  <p>
+    <b>Correo:</b>
+    {{ data.email }}
+  </p>
+  <p>
+    <b>Date:</b>
+    {{ data.date }}
+  </p>
+  <p>
+    <b>Destino:</b>
+    {{ data.country }}
+  </p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button color="accent" mat-dialog-close>Aceptar</button>
+</div>
