@@ -24,6 +24,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./views/booking/booking.module').then((m) => m.BookingModule),
   },
+  { path: 'shorter', loadChildren: () => import('./views/shorter/shorter.module').then(m => m.ShorterModule) },
   {
     path: '**',
     redirectTo: 'home',
