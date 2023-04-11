@@ -12,7 +12,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div>
+      <div class="tooltip-wrapper">
         <mat-form-field>
           <mat-label>Contraseña</mat-label>
           <input
@@ -22,6 +22,11 @@
             formControlName="password"
             type="password" />
         </mat-form-field>
+        <div
+          class="tooltip"
+          matTooltip="I will tell you a secret: RolAPwd# or RolBPwd#">
+          <span>?</span>
+        </div>
       </div>
       <div class="buttons">
         <button

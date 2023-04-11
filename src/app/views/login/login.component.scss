@@ -19,3 +19,26 @@
     }
   }
 }
+
+.tooltip-wrapper {
+  position: relative;
+
+  .tooltip {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background-color: #555;
+    border-radius: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
+    display: flex;
+    justify-content: center;
+    color: #f0f0f0;
+    font-weight: 900;
+    cursor: help;
+
+    span {
+      line-height: 22px;
+    }
+  }
+}
