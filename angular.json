@@ -37,6 +37,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://ebriopes.com/jobless_potato/",
               "budgets": [
                 {
                   "type": "initial",
